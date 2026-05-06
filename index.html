@@ -1,0 +1,64 @@
+<div class="lights">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="screen" id="screen1">
+  <h1 class="title">Happy Birthday Nour</h1>
+  <p class="subtitle">A cinematic journey created just for you</p>
+  <button class="btn" onclick="nextScreen()">Open Your Gift</button>
+</div>
+
+<div class="screen hidden" id="screen2">
+  <p>Ready for your surprise?</p>
+  <button class="btn" onclick="nextScreen()">Let's Go</button>
+</div>
+
+<div class="screen hidden" id="screen3">
+  <p>Just for you, Nour 🎁</p>
+  <button class="btn" onclick="nextScreen()">Next</button>
+</div>
+
+<div class="screen hidden" id="screen4">
+  <p>It's your special day</p>
+  <button class="btn" onclick="nextScreen()">Next</button>
+</div>
+
+<div class="screen hidden" id="screen5">
+  <p>Almost there...</p>
+  <button class="btn" onclick="showFinal()">Show Message</button>
+</div>
+
+<div class="screen hidden" id="final">
+  <p class="final-text">
+    Happy Birthday, Nour 🎂<br><br>
+    No matter how things changed, I still wish you nothing but happiness.<br>
+    You were once an important part of my life, and I’ll always respect that.<br><br>
+    I hope this new year brings you peace, success, and everything you truly deserve.<br>
+    Take care of yourself and keep being the strong and beautiful person you are. ✨
+  </p>
+
+  <button class="btn" onclick="toggleLights()">Turn On Lights ✨</button>
+  <button class="btn" onclick="flyBalloons()">Fly Balloons 🎈</button>
+  <button class="btn" onclick="showCake()">Final Surprise 🎂</button>
+</div>
+
+<!-- Cake -->
+<div class="screen hidden" id="cake-screen">
+  <div class="cake">
+    <div class="candle">
+      <div class="flame" id="flame"></div>
+      <div class="smoke" id="smoke"></div>
+    </div>
+  </div>
+  <p class="subtitle">Make a wish… 🕯️</p>
+  <button class="btn" onclick="blowCandle()">Blow Candle</button>
+</div>
+
+<!-- Final black -->
+<div id="final-black" class="final-black hidden">
+  <p class="end-text">Take care… always.</p>
+</div>
+
+<div id="balloons"></div>
+<div id="hearts"></div>
