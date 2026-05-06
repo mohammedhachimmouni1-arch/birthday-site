@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday</title>
+
+<!-- ✔ مهم: ربط CSS -->
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -53,25 +56,14 @@
 
   <button class="btn" onclick="toggleLights()">Turn On Lights ✨</button>
   <button class="btn" onclick="flyBalloons()">Fly Balloons 🎈</button>
-  <button class="btn" onclick="showCake()">Make a Wish 🎂</button>
 </div>
-
-<!-- Cake Screen -->
-<div class="screen hidden" id="cakeScreen">
-  <div class="cake">🎂</div>
-  <p>Make a wish… 🕯️</p>
-  <div class="flame" id="flame"></div>
-  <div class="smoke" id="smoke"></div>
-  <button class="btn" onclick="blowCandle()">Blow Candle</button>
-</div>
-
-<!-- Final Black Screen -->
-<div id="blackScreen">✨ THE END ✨</div>
 
 <!-- Effects -->
 <div id="balloons"></div>
 <div id="hearts"></div>
 
+<!-- ✔ مهم: ربط JS -->
 <script src="script.js"></script>
+
 </body>
 </html>
