@@ -1,71 +1,128 @@
-let current = 1;
-
-function nextScreen() {
-  document.getElementById("screen" + current).classList.add("hidden");
-  current++;
-  document.getElementById("screen" + current).classList.remove("hidden");
-}
-
-function showFinal() {
-  document.getElementById("screen" + current).classList.add("hidden");
-  document.getElementById("final").classList.remove("hidden");
-  startHearts();
+body {
+  margin: 0;
+  font-family: serif;
+  background: #000;
+  color: white;
+  overflow: hidden;
 }
 
 /* Lights */
-function toggleLights() {
-  document.querySelectorAll(".lights span").forEach((light, i) => {
-    setTimeout(() => {
-      light.classList.add("active-light");
-    }, i * 150);
-  });
+.lights {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.lights span {
+  width: 10px;
+  height: 20px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.lights span.on {
+  background: #ffd966;
+  box-shadow: 0 0 10px #ffd966, 0 0 20px #ffae00;
+}
+
+/* Screens */
+.screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Title */
+.title {
+  font-size: 3rem;
+  color: #ff4da6;
+}
+
+/* Buttons */
+.btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff4da6;
+  border: none;
+  border-radius: 20px;
+  color: white;
 }
 
 /* Balloons */
-function flyBalloons() {
-  const container = document.getElementById("balloons");
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 40px;
+  height: 60px;
+  border-radius: 50%;
+  animation: rise 6s linear forwards;
+}
 
-  for (let i = 0; i < 15; i++) {
-    let b = document.createElement("div");
-    b.className = "balloon";
-    b.style.left = Math.random() * 100 + "vw";
-    b.style.background = `hsl(${Math.random()*360},70%,60%)`;
-    b.style.animationDuration = (5 + Math.random()*3) + "s";
-
-    container.appendChild(b);
-    setTimeout(() => b.remove(), 8000);
-  }
+@keyframes rise {
+  to { transform: translateY(-120vh); }
 }
 
 /* Hearts */
-function startHearts() {
-  const container = document.getElementById("hearts");
+.heart {
+  position: absolute;
+  bottom: 0;
+  animation: float 5s linear forwards;
+}
 
-  setInterval(() => {
-    let h = document.createElement("div");
-    h.className = "heart";
-    h.innerHTML = "❤";
-    h.style.left = Math.random() * 100 + "vw";
-
-    container.appendChild(h);
-    setTimeout(() => h.remove(), 5000);
-  }, 300);
+@keyframes float {
+  to { transform: translateY(-100vh); }
 }
 
 /* Cake */
-function showCake() {
-  document.getElementById("final").classList.add("hidden");
-  document.getElementById("cake-screen").classList.remove("hidden");
+.cake {
+  font-size: 80px;
 }
 
-/* Candle */
-function blowCandle() {
-  document.getElementById("flame").style.display = "none";
-  document.getElementById("smoke").classList.add("active");
+.flame {
+  width: 10px;
+  height: 20px;
+  background: orange;
+  margin: auto;
+  border-radius: 50%;
+}
 
-  setTimeout(() => {
-    const black = document.getElementById("final-black");
-    black.classList.remove("hidden");
-    black.classList.add("show");
-  }, 2000);
+.smoke {
+  width: 10px;
+  height: 10px;
+  background: gray;
+  opacity: 0;
+  margin: auto;
+}
+
+.smoke.show {
+  opacity: 1;
+  animation: smoke 2s forwards;
+}
+
+@keyframes smoke {
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+/* Final black */
+#blackScreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
 }
