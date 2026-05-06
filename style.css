@@ -1,57 +1,53 @@
-let current = 1;
-
-function nextScreen() {
-  document.getElementById("screen"+current).classList.add("hidden");
-  current++;
-  document.getElementById("screen"+current).classList.remove("hidden");
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: #000;
+  overflow: hidden;
 }
 
-function showFinal() {
-  document.getElementById("screen"+current).classList.add("hidden");
-  document.getElementById("final").classList.remove("hidden");
-  startHearts();
+h1, p {
+  margin: 0;
 }
 
-function toggleLights() {
-  document.querySelectorAll(".lights span").forEach((l,i)=>{
-    setTimeout(()=>l.classList.add("on"), i*100);
-  });
+.screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  transition: opacity 1s;
 }
 
-function flyBalloons() {
-  const c = document.getElementById("balloons");
-  for(let i=0;i<10;i++){
-    let b = document.createElement("div");
-    b.className="balloon";
-    b.style.left=Math.random()*100+"vw";
-    b.style.background=`hsl(${Math.random()*360},70%,60%)`;
-    c.appendChild(b);
-    setTimeout(()=>b.remove(),6000);
-  }
+.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
-function startHearts(){
-  setInterval(()=>{
-    let h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="❤️";
-    h.style.left=Math.random()*100+"vw";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),5000);
-  },300);
+.title {
+  font-size: 3rem;
+  color: transparent;
+  background-image: linear-gradient(45deg, #ff78f7, #ff0077);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Cake */
-function showCake(){
-  document.getElementById("final").classList.add("hidden");
-  document.getElementById("cakeScreen").classList.remove("hidden");
+.subtitle {
+  color: rgba(255, 255, 255, 0.7);
 }
 
-function blowCandle(){
-  document.getElementById("flame").style.display="none";
-  document.getElementById("smoke").classList.add("show");
+.btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(45deg, #ff78f7, #ff0077);
+  color: white;
+  cursor: pointer;
+}
 
-  setTimeout(()=>{
-    document.getElementById("blackScreen").style.display="flex";
-  },2000);
+#balloons, #hearts {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
