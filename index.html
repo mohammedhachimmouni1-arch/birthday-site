@@ -1,8 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Lights -->
 <div class="lights">
   <span></span><span></span><span></span><span></span><span></span>
   <span></span><span></span><span></span><span></span><span></span>
 </div>
 
+<!-- Screens -->
 <div class="screen" id="screen1">
   <h1 class="title">Happy Birthday Nour</h1>
   <p class="subtitle">A cinematic journey created just for you</p>
@@ -40,25 +53,25 @@
 
   <button class="btn" onclick="toggleLights()">Turn On Lights ✨</button>
   <button class="btn" onclick="flyBalloons()">Fly Balloons 🎈</button>
-  <button class="btn" onclick="showCake()">Final Surprise 🎂</button>
+  <button class="btn" onclick="showCake()">Make a Wish 🎂</button>
 </div>
 
-<!-- Cake -->
-<div class="screen hidden" id="cake-screen">
-  <div class="cake">
-    <div class="candle">
-      <div class="flame" id="flame"></div>
-      <div class="smoke" id="smoke"></div>
-    </div>
-  </div>
-  <p class="subtitle">Make a wish… 🕯️</p>
+<!-- Cake Screen -->
+<div class="screen hidden" id="cakeScreen">
+  <div class="cake">🎂</div>
+  <p>Make a wish… 🕯️</p>
+  <div class="flame" id="flame"></div>
+  <div class="smoke" id="smoke"></div>
   <button class="btn" onclick="blowCandle()">Blow Candle</button>
 </div>
 
-<!-- Final black -->
-<div id="final-black" class="final-black hidden">
-  <p class="end-text">Take care… always.</p>
-</div>
+<!-- Final Black Screen -->
+<div id="blackScreen">✨ THE END ✨</div>
 
+<!-- Effects -->
 <div id="balloons"></div>
 <div id="hearts"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
